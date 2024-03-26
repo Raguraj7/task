@@ -1,0 +1,1 @@
+export const SET_SIGNIN_ERROR = 'SET_SIGNIN_ERROR';
