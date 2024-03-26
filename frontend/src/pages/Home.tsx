@@ -2,9 +2,9 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { useAppSelector } from '../redux/hooks';
 import { getMovieList } from '../redux/movie/action';
 import Loading from '../components/Loading';
-import { RDialog } from '../components/dialog/RDialog';
-import MovieData from '../components/home/MovieData';
 const MovieCard = lazy(() => import('../components/home/MovieCard'));
+const MovieData = lazy(() => import('../components/home/MovieData'));
+const RDialog = lazy(() => import('../components/dialog/RDialog'));
 
 const Home = () => {
   useEffect(() => {

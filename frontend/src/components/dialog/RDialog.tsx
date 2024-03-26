@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 
-export function RDialog({
+function RDialog({
   closeModal,
   modalState,
   title,
@@ -56,3 +56,4 @@ export function RDialog({
     </>
   );
 }
+export default RDialog;

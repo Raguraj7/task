@@ -33,7 +33,6 @@ const SignIn = () => {
           <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 text-center mb-3'>
             Sign in to your account
           </h1>
-          {JSON.stringify(signindata)}
           {signinerror && (
             <ErrorDisplay message={signinerror} clearError={clearErrorAction} />
           )}
