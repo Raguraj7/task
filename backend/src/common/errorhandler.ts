@@ -6,7 +6,7 @@ const ErrorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log('Middleware Error Hadnling', err, process.env.NODE_ENV);
+  console.log('Middleware Error Hadnling', err);
   const errStatus = err.status || 500;
   const errMsg = err.message || 'Something went wrong';
   res.status(errStatus).json({

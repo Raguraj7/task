@@ -16,7 +16,9 @@ const ProtectedRoute = ({ children }: any) => {
   }
 
   if (!token) {
-    return <Navigate to='/' replace />;
+    console.log('notiken');
+
+    return <Navigate to='/signin' replace />;
   }
 
   return <>{children}</>;

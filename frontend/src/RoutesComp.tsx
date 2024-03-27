@@ -11,7 +11,14 @@ const Register = lazy(() => import('./pages/Register'));
 const RoutesComp = () => {
   return (
     <Routes>
-      <Route path='/' element={<SignIn />}></Route>
+      <Route
+        path='/home'
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      ></Route>
       <Route path='/signin' element={<SignIn />}></Route>
       <Route path='/register' element={<Register />}></Route>
       <Route
@@ -22,7 +29,14 @@ const RoutesComp = () => {
           </ProtectedRoute>
         }
       ></Route>
-      <Route path='*' element={<Home />}></Route>
+      <Route
+        path='*'
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      ></Route>
     </Routes>
   );
 };

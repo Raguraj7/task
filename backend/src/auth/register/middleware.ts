@@ -8,10 +8,10 @@ export const register = async (
 ) => {
   const { username, password, phonenumber, email } = res.locals.reqdata;
 
-  if (!username || !password || !phonenumber) {
-    res.status(400).send({ status: 400, message: 'Please give all values.' });
-    return;
-  }
+  // if (!username || !password || !phonenumber) {
+  //   res.status(400).send({ status: 400, message: 'Please give all values.' });
+  //   return;
+  // }
 
   const db = await mongodb();
 

@@ -1,9 +1,14 @@
 import express from 'express';
-import { getReqData, reqMethodValidate } from '../../common/middleware';
+import {
+  getReqData,
+  reqMethodValidate,
+  validator,
+} from '../../common/middleware';
 import { register } from './middleware';
+import { registerSchema } from './validator';
 
 const router = express.Router();
 
-router.use(reqMethodValidate, getReqData, register);
+router.use(reqMethodValidate, getReqData, validator(registerSchema), register);
 
 export default router;

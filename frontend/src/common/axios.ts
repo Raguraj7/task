@@ -8,7 +8,7 @@ export const Axios = axios.create({
 Axios.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem('token');
-    const auth = token ? `${token}` : '';
+    const auth = token ? `Bearer ${token}` : '';
     config.headers['Authorization'] = auth;
     return config;
   },
@@ -23,7 +23,9 @@ Axios.interceptors.response.use(
   },
   function (error) {
     console.log('errrr', error);
-
+    if (error.response.data.status === 401) {
+      localStorage.removeItem('token');
+    }
     return Promise.reject(error.response.data.message);
   }
 );

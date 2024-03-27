@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import mongodb from '../../mongodb';
 import { catchAsync } from '../../common/errorhandler';
-import { generateToken } from '../../common/jwtFns';
+import { jwtGenerateToken } from '../../common/jwtFns';
 
 export const signin = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -28,7 +28,7 @@ export const signin = catchAsync(
       return;
     }
 
-    const token = generateToken(getUser);
+    const token = jwtGenerateToken(getUser);
 
     res.status(201).send({
       status: 201,
