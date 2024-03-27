@@ -1,7 +1,14 @@
+import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
 import { CustomError } from './common/errorhandler';
+dotenv.config();
 
-const client = new MongoClient('mongodb://localhost:27017', {
+const connectionString = process.env.MONGO_URL
+  ? process.env.MONGO_URL
+  : 'mongodb://localhost:27017';
+console.log('connectionstring', connectionString);
+
+const client = new MongoClient(connectionString, {
   connectTimeoutMS: 5000,
   socketTimeoutMS: 5000,
   serverSelectionTimeoutMS: 5000,
