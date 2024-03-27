@@ -22,4 +22,4 @@
 
 ### Note
 
-Data are stored in [data.ts](backend/src/data/data.ts) file.
+Data are stored in [data.ts](backend/src/movie/data/data.ts) file.
