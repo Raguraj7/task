@@ -28,9 +28,7 @@ const Home = () => {
   };
 
   const { list } = useAppSelector((state) => state.movie);
-  useEffect(() => {
-    return () => {};
-  }, []);
+
   return (
     <Suspense fallback={<Loading />}>
       <ErrorBoundary>
