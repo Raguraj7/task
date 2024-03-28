@@ -24,6 +24,8 @@ export const signinAction = (signindata: {
 export const registerAction = (registerdata: {
   username: string;
   password: string;
+  email: string;
+  phonenumber: string;
 }) => {
   return new Promise((resolve, reject) => {
     Axios.post('auth/register', { ...registerdata })

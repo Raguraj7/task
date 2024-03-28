@@ -5,6 +5,8 @@ import { useAppSelector } from '../redux/hooks';
 import Button from '../components/Button';
 import ErrorDisplay from '../components/ErrorDisplay';
 import ErrorBoundary from '../components/ErrorBoundary';
+import { store } from '../redux/store';
+import { SET_REGISTER_ERROR } from '../redux/auth/types';
 const Input = lazy(() => import('../components/Input'));
 
 const Register = () => {
@@ -23,9 +25,21 @@ const Register = () => {
 
   const [registersuccess, setRegistersuccess] = useState(false);
   const register = () => {
-    registerAction(registerdata).then(() => {
-      setRegistersuccess(true);
-    });
+    if (registerdata.password !== registerdata.repassword) {
+      store.dispatch({
+        type: SET_REGISTER_ERROR,
+        payload: 'Password and Repassword are not equal',
+      });
+    } else {
+      registerAction({
+        username: registerdata.username,
+        password: registerdata.password,
+        email: registerdata.email,
+        phonenumber: registerdata.phonenumber,
+      }).then(() => {
+        setRegistersuccess(true);
+      });
+    }
   };
   const { registerError } = useAppSelector((state) => state.auth);
 

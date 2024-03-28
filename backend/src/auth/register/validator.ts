@@ -27,10 +27,18 @@ export const registerSchema = Joi.object({
     .min(3)
     .max(30)
     .optional()
+    .allow('')
+    .allow(null)
     .messages({ 'string.email': 'Email must be a valid' }),
-  phonenumber: Joi.string().min(10).max(13).optional().messages({
-    'string.min': 'Phonenumber must be at least 10 characters long',
-    'string.max':
-      'Phonenumber must be less than or equal to 13 characters long',
-  }),
+  phonenumber: Joi.string()
+    .min(10)
+    .max(13)
+    .optional()
+    .allow('')
+    .allow(null)
+    .messages({
+      'string.min': 'Phonenumber must be at least 10 characters long',
+      'string.max':
+        'Phonenumber must be less than or equal to 13 characters long',
+    }),
 });
