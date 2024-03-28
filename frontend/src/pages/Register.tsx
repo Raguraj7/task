@@ -44,8 +44,8 @@ const Register = () => {
   const { registerError } = useAppSelector((state) => state.auth);
 
   return (
-    <ErrorBoundary>
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <ErrorBoundary>
         {!registersuccess ? (
           <div className='bg-gray-50 p-5 flex items-center justify-center w-full h-screen'>
             <div className='w-full max-w-md'>
@@ -121,8 +121,8 @@ const Register = () => {
             </div>
           </>
         )}
-      </Suspense>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </Suspense>
   );
 };
 

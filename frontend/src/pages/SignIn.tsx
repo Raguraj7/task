@@ -28,8 +28,9 @@ const SignIn = () => {
   const { signinerror } = useAppSelector((state) => state.auth);
 
   return (
-    <ErrorBoundary>
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      {' '}
+      <ErrorBoundary>
         <div className='bg-gray-50 p-5 flex items-center justify-center w-full h-screen'>
           <div className='w-full max-w-md'>
             <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 text-center mb-3'>
@@ -71,9 +72,9 @@ const SignIn = () => {
               </div>
             </div>
           </div>
-        </div>
-      </Suspense>
-    </ErrorBoundary>
+        </div>{' '}
+      </ErrorBoundary>
+    </Suspense>
   );
 };
 
